@@ -1,5 +1,15 @@
 server:
-  port: 8888
+  port: 8071
 spring:
   application:
     name: configserver
+  profiles:
+  # el perfil native, indica que la configuracion se leerá desde el sistema de archivos local
+    active:
+    - native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+          - "classpath:/config"   
