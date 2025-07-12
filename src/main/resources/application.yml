@@ -12,4 +12,5 @@ spring:
       server:
         native:
           search-locations:
-          - "classpath:/config"   
+          #- "classpath:/config"   
+          - "file:///home/joselopez/ambientedev/cursos/microservices/eazybytes/config"
