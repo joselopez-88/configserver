@@ -25,6 +25,23 @@ spring:
           clone-on-start: true
         # Siempre intenta hacer git pull para obtener los últimos cambios, incluso si ya hay una copia local. Es útil si haces cambios en el repo y quieres que se reflejen sin reiniciar.  
           force-pull: true
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    # "guest" es el valor por defecto del username y password de RabbitMQ
+    username: "guest"
+    password: "guest"
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+# Expone todos los endpoints de gestion de la aplicación en el puerto 8080 usando el prefijo "/actuator"
+# Para actualizar los properties usando @ConfigurationProperties es "refresh" /actuator/refresh - se ejecuta en cada microservicio a actualizar
+# Para conectar con RabbitMQ requiere "bus-refresh" /actuator/busrefresh - Se ejecuta una sola vez y se actualiza en todos los microservicios
+# siempre y cuando todos esten conectados a RabbitMQ
+# "*" significa todos  
+        - "*"          
 encrypt:
   # La clave para cifrar y descifrar las propiedades
   # La clave debe ser de 16, 24 o 32 bytes
