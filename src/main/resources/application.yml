@@ -41,7 +41,21 @@ management:
 # Para conectar con RabbitMQ requiere "bus-refresh" /actuator/busrefresh - Se ejecuta una sola vez y se actualiza en todos los microservicios
 # siempre y cuando todos esten conectados a RabbitMQ
 # "*" significa todos  
-        - "*"          
+        - "*"
+# Activando la comprobacion de estado de los microservicios
+# liveness indica que esta activo o vivo el microservicio
+# readiness indica que esta listo para recibir peticiones
+# Los endpoints de health se usan para comprobar el estado de los microservicios
+# son /actuator/health y /actuator/health/readiness y /actuator/health/liveness
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
 encrypt:
   # La clave para cifrar y descifrar las propiedades
   # La clave debe ser de 16, 24 o 32 bytes
