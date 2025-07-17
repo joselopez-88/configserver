@@ -5,16 +5,10 @@ spring:
     name: configserver
   profiles:
     active:
-  # el perfil native, indica que la configuracion se leerá desde el sistema de archivos local
-    #- native
     - git
   cloud:
     config:
       server:
-        #native:
-        #  search-locations:
-          #- "classpath:/config"   
-        #  - "file:///home/joselopez/ambientedev/cursos/microservices/eazybytes/config"
         git:
           uri: "https://github.com/joselopez-88/eazybytes-config.git"
         # Usa la rama main como fuente por defecto   
@@ -25,12 +19,7 @@ spring:
           clone-on-start: true
         # Siempre intenta hacer git pull para obtener los últimos cambios, incluso si ya hay una copia local. Es útil si haces cambios en el repo y quieres que se reflejen sin reiniciar.  
           force-pull: true
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    # "guest" es el valor por defecto del username y password de RabbitMQ
-    username: "guest"
-    password: "guest"
+
 management:
   endpoints:
     web:
@@ -40,7 +29,7 @@ management:
 # Para actualizar los properties usando @ConfigurationProperties es "refresh" /actuator/refresh - se ejecuta en cada microservicio a actualizar
 # Para conectar con RabbitMQ requiere "bus-refresh" /actuator/busrefresh - Se ejecuta una sola vez y se actualiza en todos los microservicios
 # siempre y cuando todos esten conectados a RabbitMQ
-# "*" significa todos  
+# "*" significa todos
         - "*"
 # Activando la comprobacion de estado de los microservicios
 # liveness indica que esta activo o vivo el microservicio
