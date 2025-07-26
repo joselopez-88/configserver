@@ -39,18 +39,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-		<!-- Dependencia necesaria para usar RabbitMQ, dado que ahora sera configserver quien active el evento de refresh, es necesario agregarla -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-		</dependency>
-		<!-- permite al Config Server recibir notificaciones webhooks de Git (por ejemplo, de GitHub, GitLab o Bitbucket)-->
-		<!-- y automáticamente enviar eventos de actualización a los microservicios conectados mediante Spring Cloud Bus (usando RabbitMQ o Kafka). -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-monitor</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

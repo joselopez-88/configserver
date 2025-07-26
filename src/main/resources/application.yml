@@ -25,12 +25,6 @@ spring:
           clone-on-start: true
         # Siempre intenta hacer git pull para obtener los últimos cambios, incluso si ya hay una copia local. Es útil si haces cambios en el repo y quieres que se reflejen sin reiniciar.  
           force-pull: true
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    # "guest" es el valor por defecto del username y password de RabbitMQ
-    username: "guest"
-    password: "guest"
 management:
   endpoints:
     web:
