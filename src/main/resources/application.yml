@@ -12,7 +12,7 @@ spring:
         git:
           uri: "https://github.com/joselopez-88/eazybytes-config.git"
         # Usa la rama main como fuente por defecto   
-          default-label: section9
+          default-label: section10
         # timeout esta definido en segundos  
           timeout: 5
         # Hace que el repo se clone al arrancar el Config Server, en lugar de esperar a que llegue una primera petición. Esto ayuda a detectar errores de conexión desde el inicio.
