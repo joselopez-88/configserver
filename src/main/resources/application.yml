@@ -30,6 +30,12 @@ management:
 # siempre y cuando todos esten conectados a RabbitMQ
 # "*" significa todos
         - health
+        - metrics
+        - prometheus
+## Agregar una etiqueta (tag) personalizada a todas las métricas que genera Actuator en micrometer llamado application como valor el nombre del microservicio
+  metrics:
+    tags:
+      application: ${spring.application.name}
 # Activando la comprobacion de estado de los microservicios
 # liveness indica que esta activo o vivo el microservicio
 # readiness indica que esta listo para recibir peticiones
