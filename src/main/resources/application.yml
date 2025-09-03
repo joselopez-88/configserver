@@ -54,3 +54,13 @@ encrypt:
   # La clave para cifrar y descifrar las propiedades
   # La clave debe ser de 16, 24 o 32 bytes
   key: "1A26Z2B25YV3D2F4D3F5A2B3C4D5F6A1"
+
+#Estableciendo la configuracion de logging DEBUG en el paquete com.eazybites.configserver del proyecto
+logging:
+  level:
+    com:
+      eazybites:
+        configserver: DEBUG
+# Estableciendo un patron de log personalizado para el microservicio
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"  
